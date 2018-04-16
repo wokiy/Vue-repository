@@ -1,7 +1,7 @@
 <template>
     <div>
             <!-- 头部内容 -->
-            <mt-header title="传智27期信息管理系统"></mt-header>
+            <mt-header title="管理系统"></mt-header>
             <router-view></router-view>
             <!-- 底部内容 -->
             <nav class="mui-bar mui-bar-tab">
