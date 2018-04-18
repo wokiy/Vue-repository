@@ -6,3 +6,8 @@
   autoprefixer-loader babel-loader babel-core babel-preset-es2015
   babel-plugin-transform-runtime url-loader file-loader vue-loader vue-template-compiler
   webpack-dev-server -D
+  
+  
+ ##vue-router优化##
+,,,
+  https://blog.csdn.net/yangbingbinga/article/details/61417689
