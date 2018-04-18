@@ -8,6 +8,6 @@
   webpack-dev-server -D
   
   
- ##vue-router优化##
+ ##vue项目优化之按需加载组件-使用webpack require.ensure##
 ,,,
   https://blog.csdn.net/yangbingbinga/article/details/61417689
