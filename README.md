@@ -8,3 +8,7 @@
  ### vue项目优化之按需加载组件
   使用webpack require.ensure
   https://blog.csdn.net/yangbingbinga/article/details/61417689
+
+
+#### 过滤器案例和知识
+ <a href="https://github.com/JasonLWY/Vue-repository/tree/master/g">过滤器介绍和案例</a>
