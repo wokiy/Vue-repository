@@ -8,3 +8,20 @@
   <!-- 在 `v-bind` 中 -->
   <div v-bind:id="rawId | formatId"></div>
  ```
+ 
+ > 你可以在一个组件的选项中定义本地的过滤器：
+  ```
+  vue文件
+   <template>
+    <p>{{message | capitalize}}</p>
+   </template>
+   ......
+   filters: {
+    capitalize: function (message) {
+      if (!message) return ''
+      value = value.toString()
+      return value.charAt(0).toUpperCase() + value.slice(1)
+       }
+     }
+  ```
+  
