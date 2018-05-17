@@ -2,5 +2,9 @@
  > Vue.js 允许你自定义过滤器，可被用于一些常见的文本格式化。过滤器可以用在两个地方：双花括号插值和 v-bind 表达式 (后者从 2.1.0+ 开始支持)。过滤器应该    被添加在 JavaScript 表达式的尾部，由“管道”符号指示：
   
  ```
-  asdasd 
+  <!-- 在双花括号中 -->
+  {{ message | capitalize }}
+
+  <!-- 在 `v-bind` 中 -->
+  <div v-bind:id="rawId | formatId"></div>
  ```
