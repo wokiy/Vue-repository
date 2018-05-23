@@ -420,6 +420,124 @@ const store = new Vuex.Store({
    一个 store.dispatch 在不同模块中可以触发多个 action 函数。在这种情况下，只有当所有触发函数完成后，返回的 Promise 才会执行。
  ```
 
+## Module
+> 由于使用单一状态树，应用的所有状态会集中到一个比较大的对象。当应用变得非常复杂时，store 对象就有可能变得相当臃肿。
+  为了解决以上问题，Vuex 允许我们将 store 分割成模块（module）。每个模块拥有自己的 state、mutation、action、getter、甚至是嵌套子模块——从上至下进   行同样方式的分割：
+  
+```
+  const moduleA = {
+  state: { ... },
+  mutations: { ... },
+  actions: { ... },
+  getters: { ... }
+ }
+
+ const moduleB = {
+   state: { ... },
+   mutations: { ... },
+   actions: { ... }
+ }
+
+ const store = new Vuex.Store({
+   modules: {
+     a: moduleA,
+     b: moduleB
+   }
+ })
+
+ store.state.a // -> moduleA 的状态
+ store.state.b // -> moduleB 的状态
+```
+- 模块的局部状态 对于模块内部的 mutation 和 getter，接收的第一个参数是模块的局部状态对象。
+
+```
+ const moduleA = {
+  state: { count: 0 },
+  mutations: {
+    increment (state) {
+      // 这里的 `state` 对象是模块的局部状态
+      state.count++
+    }
+  },
+
+  getters: {
+    doubleCount (state) {
+      return state.count * 2
+    }
+  }
+}
+```
+- 同样，对于模块内部的 action，局部状态通过 context.state 暴露出来，根节点状态则为 context.rootState：
+```
+ const moduleA = {
+  // ...
+  actions: {
+    incrementIfOddOnRootSum ({ state, commit, rootState }) {
+      if ((state.count + rootState.count) % 2 === 1) {
+        commit('increment')
+      }
+    }
+   }
+ }
+```
+- 对于模块内部的 getter，根节点状态会作为第三个参数暴露出来：
+```
+  const moduleA = {
+  // ...
+  getters: {
+    sumWithRootCount (state, getters, rootState) {
+      return state.count + rootState.count
+    }
+   }
+ }
+```
+## 表单案例
+ > 用“Vuex 的思维”去解决这个问题的方法是：给 <input> 中绑定 value，然后侦听 input 或者 change 事件，在事件回调中调用 action:
+```
+ <input :value="message" @input="updateMessage">
+```
+
+```
+ // ...
+computed: {
+  ...mapState({
+    message: state => state.obj.message
+  })
+},
+methods: {
+  updateMessage (e) {
+    this.$store.commit('updateMessage', e.target.value)
+  }
+}
+```
+- 下面是 mutation 函数：
+```
+ // ...
+mutations: {
+  updateMessage (state, message) {
+    state.obj.message = message
+  }
+}
+```
+
+### 双向绑定的计算属性
+> 必须承认，这样做比简单地使用“v-model + 局部状态”要啰嗦得多，并且也损失了一些 v-model 中很有用的特性。另一个方法是使用带有 setter 的双向绑定计算   属性：
+```
+  <input v-model="message">
+  ///
+  
+  // ...
+ computed: {
+   message: {
+     get () {
+       return this.$store.state.obj.message
+     },
+     set (value) {
+       this.$store.commit('updateMessage', value)
+     }
+   }
+ }
+```
 
 
 
