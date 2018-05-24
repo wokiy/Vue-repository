@@ -21,3 +21,7 @@
 ### Vuex案例和知识
 
 > <a href="https://github.com/JasonLWY/Vue-repository/blob/master/Vuex/README.md">Vuex案例和知识</a>
+
+### 组件案例和知识
+> <a href="https://github.com/JasonLWY/Vue-repository/tree/master/components">组件案例和知识</a> 
+ 
