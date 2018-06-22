@@ -25,4 +25,7 @@
 
 ### 组件案例和知识
 > <a href="https://github.com/JasonLWY/Vue-repository/tree/master/components">组件案例和知识</a> 
- 
+
+### vue 生命周期
+
+> <a href="https://github.com/JasonLWY/Vue-repository/tree/master/lief">vue生命周期函数</a>
