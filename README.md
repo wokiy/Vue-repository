@@ -23,8 +23,7 @@
 
 > <a href="https://github.com/JasonLWY/Vue-repository/blob/master/Vuex/README.md">Vuex案例和知识</a>
 
-![](https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1529897674126&di=1f7d11739191c265db9b644206a465fb&imgtype=0&src=http%3A%2F%2Faicoder.com%2Fvue%2Fpreview%2Fimgs%2F04vuex%25E6%25A8%25A1%25E5%259E%258B.png)
-
+![](http://aicoder.com/vue/preview/imgs/04vuex%E6%A8%A1%E5%9E%8B.png)
 ### 组件案例和知识
 > <a href="https://github.com/JasonLWY/Vue-repository/tree/master/components">组件案例和知识</a> 
 
