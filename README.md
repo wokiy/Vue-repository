@@ -18,7 +18,8 @@
 #### router案例和知识（各种路由传值）
 
 > <a href="https://github.com/JasonLWY/Vue-repository/blob/master/router/README.md">router案例和知识（各种路由传值）</a>
- 
+
+> <a href="https://github.com/JasonLWY/Vue-repository/blob/master/router/RouterAPI.md">RouterAPI TO</a>
 ### Vuex案例和知识
 
 > <a href="https://github.com/JasonLWY/Vue-repository/blob/master/Vuex/README.md">Vuex案例和知识</a>
