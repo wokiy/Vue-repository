@@ -12,8 +12,9 @@ VueAMap.initAMapApiLoader({
   //高德key
   key: '8b0ed0ee6401cb3c019a78af96975c2b',
   //插件集合 (定位插件)
-  plugin:['VueAMap.Autocomplete', 'VueAMap.PlaceSearch', 'VueAMap.Scale', 'VueAMap.OverView', 'VueAMap.ToolBar', 'VueAMap.MapType', 'VueAMap.PolyEditor', 'VueAMap.CircleEditor','Vue.PathSimplifier'],
-  uiVersion: '1.0.11' // 版本号
+  plugin:['AMap.Autocomplete', 'AMap.PlaceSearch', 'AMap.Scale', 'AMap.OverView', 'AMap.ToolBar', 'AMap.PolyEditor', 'AMap.CircleEditor'],
+  uiVersion: '1.0', // 版本号
+  v: '1.4.4'
 });
 new Vue({
   el: '#app',
