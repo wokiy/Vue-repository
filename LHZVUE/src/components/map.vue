@@ -49,7 +49,7 @@
   // let amp = new AMapManager();
   //引入台风数据
   import  data from './mockData2';
-  import  amp from './aMapManager2';
+  // import  amp from './aMapManager2';
   export default {
     data() {
       return {
@@ -193,13 +193,10 @@
                 loop: true, //循环播放
                 speed: 1000 //巡航速度，单位千米/小时
               });
-
-              //对第一条线路（即索引 0）创建一个巡航器
-              var navg1 = pathSimplifierIns.createPathNavigator(0, {
+              var navg2 = pathSimplifierIns.createPathNavigator(0, {
                 loop: true, //循环播放
                 speed: 1000 //巡航速度，单位千米/小时
               });
-
               function expandPath() {
 
                 function doExpand() {
@@ -220,15 +217,44 @@
 
                   //重新建立一个巡航器
                   navg1 = pathSimplifierIns.createPathNavigator(0, {
-                    loop: true, //循环播放
+                    // loop: true, //循环播放
                     speed: 1000000, //巡航速度，单位千米/小时
                     //轨迹巡航器
                     pathNavigatorStyle: {
-                      width: 24,
-                      height: 24,
+                      width: 34,
+                      height: 34,
                       pathLinePassedStyle: null,
+                      initRotateDegree:60,    
                       //使用图片
-                      content: PathSimplifier.Render.Canvas.getImageContent('../../static/typhoon.png', onload, onerror),
+                      // content: PathSimplifier.Render.Canvas.getImageContent('../../static/typhoon.png', onload, onerror),
+                      //自己画制台风图像
+                      content:function(ctx,x,y,width,height){
+                        ctx.lineWidth = 2;
+                        ctx.fillStyle = "#e7e9d1";
+                        ctx.strokeStyle = "#c88799";
+                        //画上半圆
+                        ctx.beginPath(); //新建一条path
+                        ctx.arc(10, 10, 30, 0.04, Math.PI, true)
+                        ctx.fill();
+                        ctx.stroke();
+                        //画下半圆
+                        ctx.beginPath();
+                        ctx.arc(10, 10, 20, Math.PI, 2 * Math.PI, true);
+                        ctx.fill();
+                        ctx.stroke();
+                        //画左边两圆相接线
+                        ctx.beginPath();
+                        ctx.moveTo(40,10);
+                        ctx.lineTo(30,10);
+                        ctx.fill();
+                        ctx.stroke();
+                        //画右边两圆相接线
+                        ctx.beginPath();
+                        ctx.moveTo(170, 40);
+                        ctx.lineTo(190, 40);
+                        ctx.fill();
+                      },
+
                       strokeStyle: null,
                       fillStyle: null,
                     }
@@ -250,6 +276,7 @@
                 }
               }
               navg1.start();
+             
               expandPath();
             });
           }
@@ -307,7 +334,7 @@
     //   this.windows = windows;
     // },
     components:{
-      amp
+      // amp
     }
 
   };
